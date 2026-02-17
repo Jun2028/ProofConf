@@ -1,0 +1,32 @@
+{
+  "dataset_json": "docs/miniF2F-DeepSeekChat-Prescreen-0to1.json",
+  "difficulty_levels": ["Level 1", "Level 2", "Level 3"],
+  "split": "valid",
+  "theorem_offset": 0,
+  "num_theorems": 16,
+  "samples_per_theorem": 512,
+  "window_size_tokens": 24,
+  "window_stride_tokens": 6,
+  "llm_parallel_requests": 8,
+  "lean_parallel_workers": 8,
+  "lean_batch_size": 16,
+  "tail_tokens": 256,
+  "token_confidence_method": "paper_topk",
+  "token_confidence_topk": 20,
+  "token_confidence_require_full_topk": false,
+  "token_confidence_fallback_to_chosen": false,
+  "probe_prefix_parts": false,
+  "prefix_probe_quantiles": [0.33, 0.66],
+  "prefix_probe_timeout_s": 10,
+  "filter_top_percents": [10, 25, 50],
+  "models": [
+    {
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "env_file": ".secrets/deepseek.env",
+      "temperature": 0.7,
+      "max_tokens": 8000,
+      "top_logprobs": 20
+    }
+  ]
+}

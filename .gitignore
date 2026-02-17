@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.secret/
+.secrets/
+.env
+*.env
+
+# Lean / dataset caches
+datasets/miniF2F/raw/miniF2F-lean4-main
+datasets/miniF2F/raw/miniF2F-lean4-main/.lake/
+datasets/miniF2F/raw/miniF2F-lean4-main/build/
+datasets/miniF2F/raw/miniF2F-lean4-main/.elan/
+
+# Temporary artifacts
+*.tmp
+
+# HPC / generated artifacts
+logs/pbs/
+logs/run/
+runs/
+set-up-logs/
+miniF2F-lean4-main.zip

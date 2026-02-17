@@ -1,0 +1,239 @@
+{
+  "source_reverify_json": "/scratch/USER/data/proofconf/reverify/2026-02-15_043621Z_gemini25flash_prescreen_l1_l3_32.reverify.json",
+  "criteria": {
+    "min_pass_rate": 0.1,
+    "max_pass_rate": 0.8,
+    "samples_per_theorem": 32
+  },
+  "count": 38,
+  "theorems": [
+    {
+      "theorem_name": "mathd_algebra_536",
+      "new_pass": 25,
+      "sample_count": 32,
+      "pass_rate": 0.78125
+    },
+    {
+      "theorem_name": "mathd_algebra_55",
+      "new_pass": 25,
+      "sample_count": 32,
+      "pass_rate": 0.78125
+    },
+    {
+      "theorem_name": "mathd_algebra_67",
+      "new_pass": 23,
+      "sample_count": 32,
+      "pass_rate": 0.71875
+    },
+    {
+      "theorem_name": "mathd_numbertheory_37",
+      "new_pass": 23,
+      "sample_count": 32,
+      "pass_rate": 0.71875
+    },
+    {
+      "theorem_name": "mathd_algebra_251",
+      "new_pass": 22,
+      "sample_count": 32,
+      "pass_rate": 0.6875
+    },
+    {
+      "theorem_name": "mathd_numbertheory_84",
+      "new_pass": 22,
+      "sample_count": 32,
+      "pass_rate": 0.6875
+    },
+    {
+      "theorem_name": "mathd_algebra_119",
+      "new_pass": 21,
+      "sample_count": 32,
+      "pass_rate": 0.65625
+    },
+    {
+      "theorem_name": "mathd_algebra_140",
+      "new_pass": 20,
+      "sample_count": 32,
+      "pass_rate": 0.625
+    },
+    {
+      "theorem_name": "algebra_2rootspoly_apatapbeq2asqp2ab",
+      "new_pass": 19,
+      "sample_count": 32,
+      "pass_rate": 0.59375
+    },
+    {
+      "theorem_name": "mathd_algebra_159",
+      "new_pass": 19,
+      "sample_count": 32,
+      "pass_rate": 0.59375
+    },
+    {
+      "theorem_name": "mathd_algebra_616",
+      "new_pass": 19,
+      "sample_count": 32,
+      "pass_rate": 0.59375
+    },
+    {
+      "theorem_name": "mathd_algebra_96",
+      "new_pass": 19,
+      "sample_count": 32,
+      "pass_rate": 0.59375
+    },
+    {
+      "theorem_name": "numbertheory_2dvd4expn",
+      "new_pass": 18,
+      "sample_count": 32,
+      "pass_rate": 0.5625
+    },
+    {
+      "theorem_name": "mathd_numbertheory_30",
+      "new_pass": 17,
+      "sample_count": 32,
+      "pass_rate": 0.53125
+    },
+    {
+      "theorem_name": "amc12a_2020_p21",
+      "new_pass": 16,
+      "sample_count": 32,
+      "pass_rate": 0.5
+    },
+    {
+      "theorem_name": "aime_1987_p8",
+      "new_pass": 14,
+      "sample_count": 32,
+      "pass_rate": 0.4375
+    },
+    {
+      "theorem_name": "amc12b_2021_p21",
+      "new_pass": 13,
+      "sample_count": 32,
+      "pass_rate": 0.40625
+    },
+    {
+      "theorem_name": "mathd_algebra_182",
+      "new_pass": 12,
+      "sample_count": 32,
+      "pass_rate": 0.375
+    },
+    {
+      "theorem_name": "mathd_numbertheory_136",
+      "new_pass": 11,
+      "sample_count": 32,
+      "pass_rate": 0.34375
+    },
+    {
+      "theorem_name": "aime_1996_p5",
+      "new_pass": 9,
+      "sample_count": 32,
+      "pass_rate": 0.28125
+    },
+    {
+      "theorem_name": "mathd_algebra_132",
+      "new_pass": 7,
+      "sample_count": 32,
+      "pass_rate": 0.21875
+    },
+    {
+      "theorem_name": "mathd_algebra_35",
+      "new_pass": 7,
+      "sample_count": 32,
+      "pass_rate": 0.21875
+    },
+    {
+      "theorem_name": "mathd_algebra_493",
+      "new_pass": 7,
+      "sample_count": 32,
+      "pass_rate": 0.21875
+    },
+    {
+      "theorem_name": "mathd_numbertheory_269",
+      "new_pass": 7,
+      "sample_count": 32,
+      "pass_rate": 0.21875
+    },
+    {
+      "theorem_name": "aime_1994_p4",
+      "new_pass": 6,
+      "sample_count": 32,
+      "pass_rate": 0.1875
+    },
+    {
+      "theorem_name": "algebra_sqineq_2unitcircatblt1",
+      "new_pass": 6,
+      "sample_count": 32,
+      "pass_rate": 0.1875
+    },
+    {
+      "theorem_name": "mathd_algebra_28",
+      "new_pass": 6,
+      "sample_count": 32,
+      "pass_rate": 0.1875
+    },
+    {
+      "theorem_name": "amc12a_2009_p5",
+      "new_pass": 5,
+      "sample_count": 32,
+      "pass_rate": 0.15625
+    },
+    {
+      "theorem_name": "amc12b_2003_p9",
+      "new_pass": 5,
+      "sample_count": 32,
+      "pass_rate": 0.15625
+    },
+    {
+      "theorem_name": "numbertheory_nckeqnm1ckpnm1ckm1",
+      "new_pass": 5,
+      "sample_count": 32,
+      "pass_rate": 0.15625
+    },
+    {
+      "theorem_name": "algebra_sqineq_36azm9asqle36zsq",
+      "new_pass": 4,
+      "sample_count": 32,
+      "pass_rate": 0.125
+    },
+    {
+      "theorem_name": "amc12a_2008_p2",
+      "new_pass": 4,
+      "sample_count": 32,
+      "pass_rate": 0.125
+    },
+    {
+      "theorem_name": "amc12a_2016_p3",
+      "new_pass": 4,
+      "sample_count": 32,
+      "pass_rate": 0.125
+    },
+    {
+      "theorem_name": "mathd_algebra_104",
+      "new_pass": 4,
+      "sample_count": 32,
+      "pass_rate": 0.125
+    },
+    {
+      "theorem_name": "mathd_algebra_245",
+      "new_pass": 4,
+      "sample_count": 32,
+      "pass_rate": 0.125
+    },
+    {
+      "theorem_name": "mathd_algebra_323",
+      "new_pass": 4,
+      "sample_count": 32,
+      "pass_rate": 0.125
+    },
+    {
+      "theorem_name": "mathd_algebra_43",
+      "new_pass": 4,
+      "sample_count": 32,
+      "pass_rate": 0.125
+    },
+    {
+      "theorem_name": "mathd_algebra_433",
+      "new_pass": 4,
+      "sample_count": 32,
+      "pass_rate": 0.125
+    }
+  ]
+}

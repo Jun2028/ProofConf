@@ -1,0 +1,46 @@
+#!/bin/bash
+#PBS -N proofconf_dsr_prescreen
+#PBS -P CFP01-SF-009
+#PBS -l walltime=08:00:00
+#PBS -l select=1:ncpus=10:mpiprocs=1:ompthreads=10:mem=64gb
+#PBS -j oe
+#PBS -o logs/pbs/
+
+set -euo pipefail
+
+cd "$PBS_O_WORKDIR"
+mkdir -p logs/pbs
+
+if command -v module >/dev/null 2>&1; then
+  module load git >/dev/null 2>&1 || true
+fi
+
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
+export LEAN_NUM_THREADS=1
+ulimit -n 65535 >/dev/null 2>&1 || true
+export PROOFCONF_LEAN_JOBS=1
+export PROOFCONF_LAKE_MAX_PROCS=4
+export XDG_CACHE_HOME="/scratch/${USER}/data/proofconf/cache"
+export PROOFCONF_OUTPUT_ROOT="/scratch/${USER}/data/proofconf/output"
+export PROOFCONF_RUNS_ROOT="${PROOFCONF_OUTPUT_ROOT}/runs"
+export PROOFCONF_LOGS_ROOT="${PROOFCONF_OUTPUT_ROOT}/logs"
+mkdir -p "$XDG_CACHE_HOME" "$PROOFCONF_RUNS_ROOT" "$PROOFCONF_LOGS_ROOT"
+
+cd datasets/miniF2F/raw/miniF2F-lean4-main
+mkdir -p .proofconf_tmp
+cat > .proofconf_tmp/preflight.lean <<'LEAN'
+import Mathlib
+theorem proofconf_preflight : True := by
+  trivial
+LEAN
+if ! timeout 90 lake env lean -E warning -j 1 .proofconf_tmp/preflight.lean; then
+  echo "WARN: shell preflight timed out/failed; continuing to Python warmup gate" >&2
+fi
+
+cd "$PBS_O_WORKDIR"
+uv run python -m proofconf.pipeline.run_experiment \
+  --config configs/deepseek_reasoner_prescreen_l1_l3_32.json \
+  --tag deepseek_reasoner_prescreen_l1_l3_32

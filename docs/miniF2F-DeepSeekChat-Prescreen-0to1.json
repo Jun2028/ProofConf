@@ -1,0 +1,162 @@
+[
+  {
+    "Theorem Name": "aime_1996_p5",
+    "Split": "valid",
+    "Difficulty": "0.9767",
+    "Discrimination": "0.0037",
+    "Difficulty Gading": "Level 3",
+    "Informal Prefix": "/-- Suppose that the [[root]]s of $x^3+3x^2+4x-11=0$ are $a$, $b$, and $c$, and that the roots of $x^3+rx^2+sx+t=0$ are $a+b$, $b+c$, and $c+a$. Find $t$. Show that it is 23.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem aime_1996_p5 (a b c r s t : \u211d) (f g : \u211d \u2192 \u211d)\n  (h\u2080 : \u2200 x, f x = x ^ 3 + 3 * x ^ 2 + 4 * x - 11) (h\u2081 : \u2200 x, g x = x ^ 3 + r * x ^ 2 + s * x + t)\n  (h\u2082 : f a = 0) (h\u2083 : f b = 0) (h\u2084 : f c = 0) (h\u2085 : g (a + b) = 0) (h\u2086 : g (b + c) = 0)\n  (h\u2087 : g (c + a) = 0) (h\u2088 : List.Pairwise (\u00b7 \u2260 \u00b7) [a, b, c]) : t = 23 := by\n"
+  },
+  {
+    "Theorem Name": "algebra_apb4leq8ta4pb4",
+    "Split": "valid",
+    "Difficulty": "0.5561",
+    "Discrimination": "0.9339",
+    "Difficulty Gading": "Level 2",
+    "Informal Prefix": "/-- Show that for any positive real numbers $a$ and $b$, $(a+b)^4 \\leq 8(a^4 + b^4)$.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem algebra_apb4leq8ta4pb4 (a b : \u211d) (h\u2080 : 0 < a \u2227 0 < b) : (a + b) ^ 4 \u2264 8 * (a ^ 4 + b ^ 4) := by\n"
+  },
+  {
+    "Theorem Name": "algebra_binomnegdiscrineq_10alt28asqp1",
+    "Split": "valid",
+    "Difficulty": "0.5561",
+    "Discrimination": "0.9339",
+    "Difficulty Gading": "Level 2",
+    "Informal Prefix": "/-- For any real number a, show that $10a \\leq 28a^2 + 1$.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem algebra_binomnegdiscrineq_10alt28asqp1 (a : \u211d) : 10 * a \u2264 28 * a ^ 2 + 1 := by\n"
+  },
+  {
+    "Theorem Name": "algebra_sqineq_36azm9asqle36zsq",
+    "Split": "valid",
+    "Difficulty": "0.5561",
+    "Discrimination": "0.9339",
+    "Difficulty Gading": "Level 2",
+    "Informal Prefix": "/-- For real numbers a and z, show that $36az - 9a^2 \\leq 36z^2$.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem algebra_sqineq_36azm9asqle36zsq (z a : \u211d) : 36 * (a * z) - 9 * a ^ 2 \u2264 36 * z ^ 2 := by\n"
+  },
+  {
+    "Theorem Name": "amc12a_2009_p2",
+    "Split": "valid",
+    "Difficulty": "0.322",
+    "Discrimination": "0.9164",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- Which of the following is equal to $1 + \\frac {1}{1 + \\frac {1}{1 + 1}}$?\n\n$\\textbf{(A)}\\ \\frac {5}{4} \\qquad \\textbf{(B)}\\ \\frac {3}{2} \\qquad \\textbf{(C)}\\ \\frac {5}{3} \\qquad \\textbf{(D)}\\ 2 \\qquad \\textbf{(E)}\\ 3$ Show that it is \\text{C}.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem amc12a_2009_p2 : 1 + 1 / (1 + 1 / (1 + 1)) = (5 : \u211a) / 3 := by\n"
+  },
+  {
+    "Theorem Name": "amc12a_2021_p7",
+    "Split": "valid",
+    "Difficulty": "0.5405",
+    "Discrimination": "0.9278",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- What is the least possible value of $(xy-1)^2+(x+y)^2$ for real numbers $x$ and $y$?\n\n$\\textbf{(A)} ~0\\qquad\\textbf{(B)} ~\\frac{1}{4}\\qquad\\textbf{(C)} ~\\frac{1}{2} \\qquad\\textbf{(D)} ~1 \\qquad\\textbf{(E)} Show that it is \\textbf{(D)} ~1.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem amc12a_2021_p7 (x y : \u211d) : 1 \u2264 (x * y - 1) ^ 2 + (x + y) ^ 2 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_algebra_393",
+    "Split": "valid",
+    "Difficulty": "0.6056",
+    "Discrimination": "0.8184",
+    "Difficulty Gading": "Level 2",
+    "Informal Prefix": "/-- If $f(x)=4x^3+1$, find $f^{-1}(33)$. Show that it is 2.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_algebra_393 (\u03c3 : Equiv \u211d \u211d) (h\u2080 : \u2200 x, \u03c3.1 x = 4 * x ^ 3 + 1) : \u03c3.2 33 = 2 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_algebra_455",
+    "Split": "valid",
+    "Difficulty": "0.5494",
+    "Discrimination": "0.9072",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- At each basketball practice last week, Jenny made twice as many free throws as she made at the previous practice.  At her fifth practice she made 48 free throws.  How many free throws did she make at the first practice? Show that it is 3.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_algebra_455 (x : \u211d) (h\u2080 : 2 * (2 * (2 * (2 * x))) = 48) : x = 3 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_algebra_536",
+    "Split": "valid",
+    "Difficulty": "0.513",
+    "Discrimination": "0.9414",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- Simplify: $3!(2^3+\\sqrt{9})\\div 2$. Show that it is 33.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_algebra_536 : \u21913! * ((2 : \u211d) ^ 3 + Real.sqrt 9) / 2 = (33 : \u211d) := by\n"
+  },
+  {
+    "Theorem Name": "mathd_numbertheory_102",
+    "Split": "valid",
+    "Difficulty": "0.1439",
+    "Discrimination": "0.946",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- Find the remainder of $2^8$ when it is divided by 5. Show that it is 1.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_numbertheory_102 : 2 ^ 8 % 5 = 1 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_numbertheory_132",
+    "Split": "valid",
+    "Difficulty": "0.1974",
+    "Discrimination": "0.903",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- What is the remainder of 2004 divided by 12? Show that it is 0.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_numbertheory_132 : 2004 % 12 = 0 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_numbertheory_188",
+    "Split": "valid",
+    "Difficulty": "0.2371",
+    "Discrimination": "0.9427",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- Find the greatest common factor of 180 and 168. Show that it is 12.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_numbertheory_188 : Nat.gcd 180 168 = 12 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_numbertheory_200",
+    "Split": "valid",
+    "Difficulty": "0.1002",
+    "Discrimination": "0.9792",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- Tim is doing a cakewalk with $11$ steps. He takes his first step on step $1$ and takes a total of $139$ steps, walking in a circle (so that after the 11th step he reaches the first step again). Which step of the cakewalk does he end on? Show that it is 7.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_numbertheory_200 : 139 % 11 = 7 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_numbertheory_739",
+    "Split": "valid",
+    "Difficulty": "0.4488",
+    "Discrimination": "0.9364",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- For each positive integer $n$, let $n!$ denote the product $1\\cdot 2\\cdot 3\\cdot\\,\\cdots\\,\\cdot (n-1)\\cdot n$.\n\nWhat is the remainder when $9!$ is divided by $10$? Show that it is 0.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_numbertheory_739 : 9! % 10 = 0 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_numbertheory_84",
+    "Split": "valid",
+    "Difficulty": "0.5651",
+    "Discrimination": "0.9193",
+    "Difficulty Gading": "Level 2",
+    "Informal Prefix": "/-- What is the digit in the hundredths place of the decimal equivalent of $\\frac{9}{160}$? Show that it is 5.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_numbertheory_84 : Int.floor ((9 : \u211d) / 160 * 100) = 5 := by\n"
+  },
+  {
+    "Theorem Name": "mathd_numbertheory_961",
+    "Split": "valid",
+    "Difficulty": "0.1799",
+    "Discrimination": "0.9646",
+    "Difficulty Gading": "Level 1",
+    "Informal Prefix": "/-- What is the remainder when 2003 is divided by 11? Show that it is 1.-/\n",
+    "Header": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n",
+    "Formal Statement": "theorem mathd_numbertheory_961 : 2003 % 11 = 1 := by\n"
+  }
+]
