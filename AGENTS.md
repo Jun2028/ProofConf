@@ -9,6 +9,10 @@
   changes in `experiments/provenance.json`; retain negative results and caveats.
 - Keep raw runs, credentials, model weights, caches, and operational logs out of
   Git. Put superseded material in Git history rather than active documentation.
+- This repository is public. Redact account identifiers, personal filesystem
+  paths, private email addresses, and conversation exports before publishing.
+  Keep private source-location mappings outside the repository; public
+  provenance uses symbolic source roots and separate source/published hashes.
 - Before committing, follow [the commit policy](guidelines/git-commit.md).
 - Use CPU for analysis, API calls, and Lean work. Reserve GPUs only for local
   model inference; the user's hard cap is two GPUs at any moment. Use a shared

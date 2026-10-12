@@ -183,5 +183,10 @@
       "git_archive": "history:logs/analysis/historical-2026-spring/2026-04-01-notes/20260423-early-stop-auc-clarification.md"
     }
   },
-  "privacy_note": "Public metadata uses symbolic source roots. Account identifiers and personal filesystem paths have been redacted; numeric scores and labels are unchanged. source_sha256 values identify original private source files; sha256 values identify the published files."
+  "privacy_note": "Public metadata uses symbolic source roots. Account identifiers and personal filesystem paths have been redacted; numeric scores and labels are unchanged. source_sha256 values identify original private source files; sha256 values identify the published files.",
+  "source_roots": {
+    "SOURCE_WORKSPACE": "Original code workspace",
+    "SOURCE_ARTIFACTS": "Original raw-run and analysis storage",
+    "SOURCE_CONFEVOLVE": "Original trace-generation workspace"
+  }
 }
