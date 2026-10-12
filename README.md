@@ -1,103 +1,67 @@
 # ProofConf
 
-A reproducible pipeline to study whether token-confidence signals from LLM-generated Lean proofs correlate with proof correctness.
+The April–May 2026 experiments measuring whether predefined model-confidence
+scores distinguish Lean proofs that pass verification from attempts that fail. Each experiment
+keeps its producing code, inputs/configuration, results, and reproduction
+instructions together.
 
-## Historical Results
+## Experiments and evidence
 
-The [recovered April–May 2026 results](logs/analysis/historical-2026-spring/README.md)
-include the **0.871 / 0.839 AUC** single-theorem observation, the completed
-244-theorem Goedel study, and Goedel rescoring of GPT-5.4 Mini/DeepSeek proofs.
-Original reports, attempt-level metric tables, provenance, and a CPU-only
-reproduction check are included. The archive distinguishes global AUC from
-within-theorem discrimination and records which older artifacts remain missing.
+| Experiment | Generator → scorer | Saved result | Scope |
+| --- | --- | --- | --- |
+| [Goedel confidence](experiments/goedel-confidence/) | Goedel-Prover-V2-8B → its generation top-20 logprobs | LGC AUC **0.723530** global, **0.515053** within theorem | April: 244 theorems × 32 attempts |
+| [API-proof rescoring](experiments/api-proof-rescoring/) | GPT-5.4 Mini / DeepSeek V4 Flash → Goedel-Prover-V2-8B | Minimum-token AUC **0.705206** global, **0.517396** within theorem | May: 35,749 saved proof attempts |
 
-## Goal
+The remembered **0.870968 / 0.838710 AUCs** are Goedel LGC / bottom-10%
+scores on [one selected theorem](experiments/goedel-confidence/results/2026-04-01-single-theorem/summary.json),
+with one passing and 31 failing attempts. They are an exploratory observation.
+The larger April experiment supplies the fixed-budget comparison.
 
-For each generated proof attempt:
-1. Generate a full Lean proof body from an LLM.
-2. Capture token-level log-probabilities when available.
-3. Verify the proof with Lean.
-4. Compute confidence metrics (Lowest Group Confidence, Bottom-10% Group Confidence).
-5. Compare confidence against Lean pass/fail outcomes.
+Global AUC compares passing and failing attempts across the entire pool.
+Within-theorem AUC compares attempts on the same theorem, then averages over
+theorems with both labels. Score ties receive half credit. These studies
+measure correctness discrimination; they do not establish a proof-search or
+repair benefit. Search experiments belong in [ConfEvolve](https://github.com/Jun2028/ConfEvolve).
 
-## Confidence Computation
+## Scores
 
-This repo currently uses token logprob-based scores (higher is more confident):
+The April `paper_topk` method uses
+`C_t = -mean(top-k candidate logprobs at token t)`, with up to 20 available
+candidates. LGC is the minimum sliding-window mean; bottom-10% averages the
+lowest `max(1, floor(0.1 × window_count))` window means. Windows contain 24
+tokens with stride 6, including the final window; tail confidence uses the
+last 256 tokens. The historical field `avg_logprob` contains **mean C_t** in
+this mode. Full top-20 coverage was not required; chosen-token fallback was off.
 
-- `token_score[i] = logprob(chosen_token_i)`
-- Sliding windows on token scores with `window_size=24`, `stride=6`
-- `LGC = min(window_mean_j)`
-- `Bottom10 = mean(lowest 10% of window_mean_j)`
+The May experiment instead scores **chosen proof-body tokens** under Goedel:
+mean, minimum, bottom-10% token mean, minimum window mean, and tail mean.
+Those are external scores of API-generated proofs. Each experiment's source
+implements its recorded definition. All reported AUCs use higher scores
+as the positive direction, including results below 0.5.
 
-For interpretability, the pipeline also annotates the weakest token window with
-line-range context and optional tactic-like span indices when segmentation is reliable.
+## Reproduce the saved tables
 
-If token logprobs are unavailable for a provider/model, confidence metrics are recorded as `NaN` and pass/fail comparison is still logged.
-
-## Repository Layout
-
-- `src/proofconf/` core pipeline (dataset loading, API clients, verifier, metrics, logging)
-- `scripts/setup_minif2f.sh` Lean dependency setup (cache-aware, scratch-backed)
-- `scripts/test.sh` setup smoke test with structured logs
-- `scripts/run.sh` initial experiment run
-- `configs/initial_run.json` initial experiment config
-- `runs/<run_id>/` scientific artifacts (`samples.jsonl`, `verdicts.jsonl`, `metrics.jsonl`, `summary.*`)
-- `logs/run/<run_id>/` driver logs and env/git snapshots
-- `set-up-logs/` setup-test records
-
-## Prerequisites
-
-- `uv`
-- `elan`/`lake`/`lean` toolchain
-- API keys in:
-  - `.secrets/deepseek.env` (`export DEEPSEEK_API_KEY=...`)
-  - `.secrets/gemini.env` (`export GEMINI_API_KEY=...`)
-
-## Setup
+Python 3.10+:
 
 ```bash
-uv venv
-uv sync
-scripts/setup_minif2f.sh
-scripts/test.sh
+python3 -m pip install -r requirements.txt
+python3 scripts/verify_results.py
+python3 -m unittest discover -s experiments/api-proof-rescoring/tests
 ```
 
-Notes:
-- miniF2F heavy artifacts are set up to use `/scratch/$USER/data/proofconf`.
-- `scripts/setup_minif2f.sh` uses `lake exe cache get` with TLS settings for this environment.
+The check calls the recovered analysis code for **all 13 metric comparisons**
+across the three April/May datasets (43,589 rows), checking artifact hashes,
+counts, AUCs, correlations, and filtering tables. It runs on CPU without model
+calls or Lean. It does not revalidate the original logprobs or verification
+labels.
 
-## Run Initial Experiment
+Each experiment README gives the generation/scoring commands and required
+external inputs. [Provenance](experiments/provenance.json) records source
+locations, hashes, and the limited portability edits to recovered code. Large
+raw model payloads and weights stay outside Git. Original reports and saved
+scores retain their contents.
 
-```bash
-scripts/run.sh
-```
-
-Default config (`configs/initial_run.json`):
-- dataset: `docs/miniF2F-Graded.json`
-- split: `valid`
-- difficulty levels: `Level 2`, `Level 3`
-- theorems: `3`
-- samples per theorem per model: `2`
-- models: `deepseek-chat`, `gemini-2.5-flash`
-
-## First Run Results
-
-Reference run: `runs/2026-02-13_185247Z_initial`
-
-- DeepSeek (`deepseek-chat`)
-  - attempts: `6`
-  - Lean pass count: `2`
-  - Lean pass rate: `0.333`
-  - mean LGC: `-0.0095`
-  - pass mean LGC: `-0.0248`
-  - fail mean LGC: `-0.0018`
-
-- Gemini (`gemini-2.5-flash`)
-  - attempts: `6`
-  - Lean pass count: `0`
-  - Lean pass rate: `0.000`
-  - token logprobs unavailable via this API setup, so confidence metrics are `NaN`
-
-## Current Known Limitation
-
-In this environment/API access, Gemini 2.5 Flash rejects token logprob requests (`Logprobs is not enabled for models/gemini-2.5-flash`). The pipeline falls back to generation without logprobs and records `NaN` confidence metrics for those samples.
+The separate **2 April GPT-5.4 Mini native-confidence prescreen** remains
+unrecovered; May's Goedel rescoring must not be attributed to that experiment.
+The older February pipeline, setup plans, invalidated reports, and cluster wrappers
+are preserved in [the pre-cleanup history](https://github.com/Jun2028/ProofConf/commits/main).

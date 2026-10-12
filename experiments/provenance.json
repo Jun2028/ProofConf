@@ -1,0 +1,187 @@
+{
+  "archived_utc": "2026-10-12T08:39:11.135093+00:00",
+  "scope": "Historical artifact recovery only; no new generation, model inference, or Lean verification.",
+  "datasets": [
+    {
+      "directory": "goedel-confidence/results/2026-04-01-single-theorem",
+      "rows": 32,
+      "generator_counts": {
+        "Goedel-Prover-V2-8B": 32
+      },
+      "generator_pass_counts": {
+        "Goedel-Prover-V2-8B": 1
+      },
+      "metric_columns": [
+        "avg_logprob",
+        "lowest_group_confidence",
+        "bottom10_group_confidence",
+        "tail_confidence"
+      ],
+      "source_row_keys": [
+        "theorem_name",
+        "candidate_index"
+      ],
+      "fixed_attempts_per_theorem": 32,
+      "scope": "One theorem selected after inspection of the earlier adaptive corpus, not an independent multi-theorem experiment.",
+      "analysis_script": "goedel-confidence/scripts/analyze_proofconf_confidence.py"
+    },
+    {
+      "directory": "goedel-confidence/results/2026-04-26-fixed32",
+      "rows": 7808,
+      "generator_counts": {
+        "Goedel-Prover-V2-8B": 7808
+      },
+      "generator_pass_counts": {
+        "Goedel-Prover-V2-8B": 5536
+      },
+      "metric_columns": [
+        "avg_logprob",
+        "lowest_group_confidence",
+        "bottom10_group_confidence",
+        "tail_confidence"
+      ],
+      "source_row_keys": [
+        "theorem_name",
+        "candidate_index"
+      ],
+      "fixed_attempts_per_theorem": 32,
+      "analysis_script": "goedel-confidence/scripts/analyze_proofconf_confidence.py"
+    },
+    {
+      "directory": "api-proof-rescoring/results/2026-05-25",
+      "rows": 35749,
+      "generator_counts": {
+        "deepseek-v4-flash": 1183,
+        "openai/gpt-5.4-mini": 34566
+      },
+      "generator_pass_counts": {
+        "deepseek-v4-flash": 11,
+        "openai/gpt-5.4-mini": 211
+      },
+      "metric_columns": [
+        "avg_logprob",
+        "min_logprob",
+        "bottom10_logprob",
+        "lowest_window_logprob",
+        "tail_logprob"
+      ],
+      "source_row_keys": [
+        "theorem_name",
+        "candidate_index"
+      ],
+      "generator_annotation_source": {
+        "path": "SOURCE_ARTIFACTS/analysis/proofconf-api-gpt54mini-deepseek-nosorry-noenv-20260525/results.jsonl",
+        "sha256": "8059d2a28bf8d2be3643ba69779614b5ba084e902f8bb421f8c042f327e7f720",
+        "join": "Exact original proof_file; original metadata passed label checked for every archived row."
+      },
+      "analysis_script": "api-proof-rescoring/scripts/score_prompt_logprobs.py"
+    }
+  ],
+  "artifacts": {
+    "goedel-confidence/results/2026-04-26-fixed32/summary.json": {
+      "sha256": "2f0b29a5d1377a551d53b52f608f50aeaa26f42545cffbdbfb014ecd7375b1fc",
+      "source_path": "SOURCE_ARTIFACTS/analysis/proofconf-confidence-20260423-valid-fixed32-top20-rs16-r2/summary.json",
+      "source_sha256": "c2e2b871f31bffc04fbb1e2a2f351e204b5544d66493ff84a70cd4101d42b9e5"
+    },
+    "goedel-confidence/results/2026-04-26-fixed32/summary.md": {
+      "sha256": "392f2208ab776119f63930b5f4fd82643a106ab2a49a845477af82ee2fd8b1b3",
+      "source_path": "SOURCE_ARTIFACTS/analysis/proofconf-confidence-20260423-valid-fixed32-top20-rs16-r2/summary.md",
+      "source_sha256": "392f2208ab776119f63930b5f4fd82643a106ab2a49a845477af82ee2fd8b1b3"
+    },
+    "goedel-confidence/results/2026-04-26-fixed32/attempt_metrics.csv.gz": {
+      "sha256": "f88c32da768ce2c42f2862530b590828b9aa88ae191029083a6ebf66aff06f1c",
+      "source_path": "SOURCE_ARTIFACTS/analysis/proofconf-confidence-20260423-valid-fixed32-top20-rs16-r2/trace_metrics.csv",
+      "source_sha256": "755851b8987eca72ab8be5fca6b2196f7c68a92ca85392f33a38ce3260bbb308",
+      "transformation": "Column projection in original row order, with generator provenance added; original metric strings and labels retained; gzip mtime=0."
+    },
+    "api-proof-rescoring/results/2026-05-25/summary.json": {
+      "sha256": "2f6c7459f5680bb7815d357d0e1b9210187e180c4c1347c45321d4c0f5d15633",
+      "source_path": "SOURCE_ARTIFACTS/analysis/prompt-logprob-proofconf-api-gpt54mini-deepseek-nosorry-noenv-strict-20260525-postfilter/summary.json",
+      "source_sha256": "c690668d5545fe3e57abc013aa0de2d8d408c03372e7ff1a9bed0aa0ef7ec5ef"
+    },
+    "api-proof-rescoring/results/2026-05-25/summary.md": {
+      "sha256": "5f38f9c08add53964a4fbee5c22ab0b319b42de547d748fe53874c8bc6cf405c",
+      "source_path": "SOURCE_ARTIFACTS/analysis/prompt-logprob-proofconf-api-gpt54mini-deepseek-nosorry-noenv-strict-20260525-postfilter/summary.md",
+      "source_sha256": "ab09abb053c7ba955330a581d08966fe7e5ad0d368910922078d14f05ff8e80a"
+    },
+    "api-proof-rescoring/results/2026-05-25/attempt_metrics.csv.gz": {
+      "sha256": "d2f680a7536f11ed5a590b7ba7e3e9969bf9c9fef453dd4de5186e69e0a208a3",
+      "source_path": "SOURCE_ARTIFACTS/analysis/prompt-logprob-proofconf-api-gpt54mini-deepseek-nosorry-noenv-strict-20260525-postfilter/trace_metrics.csv",
+      "source_sha256": "5719cb920d5fce88728670c23e43c0a83677966a5630e3ec39a6e2f42791f76f",
+      "transformation": "Column projection of original CSV with generator provenance added. All metric strings and labels retained. Rows ordered by original trace_metrics.jsonl (the analysis order); original CSV was reordered for presentation. Order matters only to deterministic selection among tied scores. gzip mtime=0.",
+      "analysis_order_source": "SOURCE_ARTIFACTS/analysis/prompt-logprob-proofconf-api-gpt54mini-deepseek-nosorry-noenv-strict-20260525-postfilter/trace_metrics.jsonl",
+      "analysis_order_sha256": "44df7029cc040ff3397de490b38181f9879381c70164f0dc02513bf6aded7c7a"
+    },
+    "api-proof-rescoring/results/2026-05-25/original-audit.md": {
+      "sha256": "dfb45f2e49bbe7ac82ab50a0ca557c44786e2d3e79d5da15607c6edfac6e396c",
+      "source_path": "SOURCE_WORKSPACE/logs/20260525-proofconf-api-scoring-critical-audit.md",
+      "source_sha256": "3e49d57bd531e9e0fb69d8a85e866abfaaff59189f1b070240f39f3dc7975c68"
+    },
+    "goedel-confidence/results/2026-04-01-single-theorem/summary.json": {
+      "sha256": "9c4d9b384dcfc1a400b320a5cbd7978870ff166b56034b4b5fa5489710f677bf",
+      "reconstructed_from": {
+        "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260328-top20-rs16-shard03/eval/results.jsonl": "11dc1c86e2685e20cd3ceeadf7f0e534f4af1debc5ab4112596744a60e9fec8e",
+        "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260328-top20-rs16-shard03/eval/raw/mathd_algebra_289.json": "ca9a9e85b29580a4a87d1f8e7b285bdcf9503b60673969e7ea14e2343d498d22",
+        "SOURCE_WORKSPACE/scripts/analyze_proofconf_confidence.py": "a5e15180f38813492ee98c4684e327f1502a786dc521a0e03b3fb58c94ca4d47"
+      },
+      "transformation": "Recomputed on 2026-10-12 from saved March generation logprobs and saved verification labels; all four AUCs match the April 1 note to its reported precision. No new model calls or Lean verification."
+    },
+    "goedel-confidence/results/2026-04-01-single-theorem/attempt_metrics.csv.gz": {
+      "sha256": "b4322f95c3867137886cdacc01a5cbad80bb39b0f749d4f46c40ba6034d11fca",
+      "reconstructed_from": {
+        "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260328-top20-rs16-shard03/eval/results.jsonl": "11dc1c86e2685e20cd3ceeadf7f0e534f4af1debc5ab4112596744a60e9fec8e",
+        "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260328-top20-rs16-shard03/eval/raw/mathd_algebra_289.json": "ca9a9e85b29580a4a87d1f8e7b285bdcf9503b60673969e7ea14e2343d498d22",
+        "SOURCE_WORKSPACE/scripts/analyze_proofconf_confidence.py": "a5e15180f38813492ee98c4684e327f1502a786dc521a0e03b3fb58c94ca4d47"
+      },
+      "transformation": "Recomputed on 2026-10-12 from saved March generation logprobs and saved verification labels; all four AUCs match the April 1 note to its reported precision. No new model calls or Lean verification."
+    }
+  },
+  "source_code": {
+    "goedel-confidence/scripts/eval_minif2f_passk.py": {
+      "source_path": "SOURCE_WORKSPACE/scripts/eval_minif2f_passk.py",
+      "source_sha256": "b7620303c0dfa41cbdb355c2540ed67f372203461639f0737511b9087fd1a0ce",
+      "sha256": "b7620303c0dfa41cbdb355c2540ed67f372203461639f0737511b9087fd1a0ce",
+      "changes": "Unchanged copy."
+    },
+    "goedel-confidence/scripts/analyze_proofconf_confidence.py": {
+      "source_path": "SOURCE_WORKSPACE/scripts/analyze_proofconf_confidence.py",
+      "source_sha256": "a5e15180f38813492ee98c4684e327f1502a786dc521a0e03b3fb58c94ca4d47",
+      "sha256": "cb7e862d6e7699679e2b0e8c7e743ae30e5805ef6bf642bc30194f9c329b82d7",
+      "changes": "Require explicit results-glob and output-dir instead of hardcoded Hopper defaults. Metric and analysis functions unchanged."
+    },
+    "api-proof-rescoring/scripts/build_proofconf_prompt_manifest.py": {
+      "source_path": "SOURCE_WORKSPACE/scripts/build_proofconf_prompt_manifest.py",
+      "source_sha256": "13ce50872d1b7168118ac334faf9564afffff7f8f3d56a0be6cf5838e481c4c5",
+      "sha256": "13ce50872d1b7168118ac334faf9564afffff7f8f3d56a0be6cf5838e481c4c5",
+      "changes": "Unchanged copy."
+    },
+    "api-proof-rescoring/scripts/score_prompt_logprobs.py": {
+      "source_path": "SOURCE_WORKSPACE/scripts/score_prompt_logprobs.py",
+      "source_sha256": "1592026cc0eff2fce259185a975cbcc5bf84fefc03fcfaa3a12791e4d5c0b169",
+      "sha256": "6ce8402709f3dc30fe69ecc2732bc3e6366789fb6f295a89c040622a262d9b81",
+      "changes": "Require explicit results-glob/output-dir; portable model identifier as tokenizer default; baseline summary points to sibling experiment. Metric, body-mask, and analysis functions unchanged."
+    },
+    "api-proof-rescoring/tests/test_score_prompt_logprobs.py": {
+      "source_path": "SOURCE_WORKSPACE/tests/test_score_prompt_logprobs.py",
+      "source_sha256": "5e90ab093c909e3cc022423071a332e3ef0b25f51286ca22d6b6b43d17ceea51",
+      "sha256": "5e90ab093c909e3cc022423071a332e3ef0b25f51286ca22d6b6b43d17ceea51",
+      "changes": "Unchanged copy."
+    }
+  },
+  "source_code_note": "Recovered source snapshots on 2026-10-12 from the original Hopper workspace, which was not under Git. The April analyzer hash also matches the single-theorem recovery. Exact job-time versions of the other scripts were not recorded. Portability edits are listed for each file; scoring formulas are unchanged.",
+  "historical_context": {
+    "SOURCE_WORKSPACE/logs/20260401-proofconf-confidence-analysis.md": {
+      "sha256": "31530859c81ba75756fc434c060fce580ee4ffabc02d79d40fc452d70571fdee",
+      "git_archive": "history:logs/analysis/historical-2026-spring/2026-04-01-notes/20260401-proofconf-confidence-analysis.md"
+    },
+    "SOURCE_WORKSPACE/logs/20260401-proofconf-fixed-pool-followup.md": {
+      "sha256": "b1b3087f30f2317547581902704818f7b922a9d637bbde996335fb63a02955ad",
+      "git_archive": "history:logs/analysis/historical-2026-spring/2026-04-01-notes/20260401-proofconf-fixed-pool-followup.md"
+    },
+    "SOURCE_WORKSPACE/logs/20260423-early-stop-auc-clarification.md": {
+      "sha256": "f25a711336f02d99b79eb8555c9e12568f184341955872d9c97e494553007f95",
+      "git_archive": "history:logs/analysis/historical-2026-spring/2026-04-01-notes/20260423-early-stop-auc-clarification.md"
+    }
+  },
+  "privacy_note": "Public metadata uses symbolic source roots. Account identifiers and personal filesystem paths have been redacted; numeric scores and labels are unchanged. source_sha256 values identify original private source files; sha256 values identify the published files."
+}
