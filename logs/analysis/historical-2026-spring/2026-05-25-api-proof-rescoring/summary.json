@@ -1,0 +1,202 @@
+{
+  "source_result_files": [
+    "SOURCE_ARTIFACTS/analysis/proofconf-api-gpt54mini-deepseek-nosorry-noenv-strict-20260525/results.jsonl"
+  ],
+  "base_url": "http://127.0.0.1:8000/v1",
+  "model": "Goedel-Prover-V2-8B",
+  "tokenizer": "SOURCE_ARTIFACTS/models/Goedel-LM__Goedel-Prover-V2-8B",
+  "offset_source": "tokenizer",
+  "prompt_logprobs": 0,
+  "endpoint": "/v1/completions",
+  "request_shape": {
+    "echo": true,
+    "max_tokens": 0,
+    "logprobs": 0,
+    "prompt_logprobs": 0,
+    "add_special_tokens": false
+  },
+  "window_size": 24,
+  "stride": 6,
+  "tail_tokens": 256,
+  "bottom_fraction": 0.1,
+  "workers": 4,
+  "keep_percents": [
+    10,
+    25,
+    50
+  ],
+  "unique_theorems": 122,
+  "attempt_rows_analyzed": 35749,
+  "attempt_rows_scored": 35749,
+  "correct_attempts": 222,
+  "wrong_attempts": 35527,
+  "scoring_errors": 0,
+  "missing_metrics": 0,
+  "status_counts": {
+    "failed_verification": 35527,
+    "passed": 222
+  },
+  "baseline_attempt_success_rate": 0.006209963915074547,
+  "baseline_theorem_solved_rate": 0.8934426229508197,
+  "global_correlation": {
+    "avg_logprob": {
+      "point_biserial": -0.04888372900643623,
+      "auc": 0.3412396408568334
+    },
+    "min_logprob": {
+      "point_biserial": 0.0583874417735743,
+      "auc": 0.7052063815440965
+    },
+    "bottom10_logprob": {
+      "point_biserial": -0.04811134707519235,
+      "auc": 0.3423604100624395
+    },
+    "lowest_window_logprob": {
+      "point_biserial": 0.04643507996226483,
+      "auc": 0.6619387563880484
+    },
+    "tail_logprob": {
+      "point_biserial": -0.0498420836989575,
+      "auc": 0.33429580395268466
+    }
+  },
+  "within_theorem_auc": {
+    "avg_logprob": {
+      "valid_theorems": 63,
+      "mean_per_theorem_auc": 0.5081067588649871,
+      "theorems_below_0_5": 29
+    },
+    "min_logprob": {
+      "valid_theorems": 63,
+      "mean_per_theorem_auc": 0.5173956745502967,
+      "theorems_below_0_5": 26
+    },
+    "bottom10_logprob": {
+      "valid_theorems": 63,
+      "mean_per_theorem_auc": 0.4601248983162328,
+      "theorems_below_0_5": 31
+    },
+    "lowest_window_logprob": {
+      "valid_theorems": 63,
+      "mean_per_theorem_auc": 0.5276875381327575,
+      "theorems_below_0_5": 32
+    },
+    "tail_logprob": {
+      "valid_theorems": 63,
+      "mean_per_theorem_auc": 0.49977953115238377,
+      "theorems_below_0_5": 31
+    }
+  },
+  "confidence_filtering": {
+    "avg_logprob": {
+      "baseline_attempt_success_rate": 0.006209963915074547,
+      "baseline_theorem_solved_rate": 0.8934426229508197,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 3645,
+          "attempt_success_rate": 0.02030178326474623,
+          "theorem_solved_rate": 0.5901639344262295
+        },
+        "25": {
+          "kept_attempts": 8985,
+          "attempt_success_rate": 0.009794101279910962,
+          "theorem_solved_rate": 0.6475409836065574
+        },
+        "50": {
+          "kept_attempts": 17897,
+          "attempt_success_rate": 0.006705034363301112,
+          "theorem_solved_rate": 0.7868852459016393
+        }
+      }
+    },
+    "min_logprob": {
+      "baseline_attempt_success_rate": 0.006209963915074547,
+      "baseline_theorem_solved_rate": 0.8934426229508197,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 3645,
+          "attempt_success_rate": 0.019478737997256516,
+          "theorem_solved_rate": 0.5655737704918032
+        },
+        "25": {
+          "kept_attempts": 8985,
+          "attempt_success_rate": 0.009682804674457429,
+          "theorem_solved_rate": 0.6311475409836066
+        },
+        "50": {
+          "kept_attempts": 17897,
+          "attempt_success_rate": 0.006649159076940269,
+          "theorem_solved_rate": 0.7622950819672131
+        }
+      }
+    },
+    "bottom10_logprob": {
+      "baseline_attempt_success_rate": 0.006209963915074547,
+      "baseline_theorem_solved_rate": 0.8934426229508197,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 3645,
+          "attempt_success_rate": 0.018381344307270234,
+          "theorem_solved_rate": 0.5409836065573771
+        },
+        "25": {
+          "kept_attempts": 8985,
+          "attempt_success_rate": 0.009237618252643295,
+          "theorem_solved_rate": 0.6147540983606558
+        },
+        "50": {
+          "kept_attempts": 17897,
+          "attempt_success_rate": 0.006146281499692686,
+          "theorem_solved_rate": 0.7540983606557377
+        }
+      }
+    },
+    "lowest_window_logprob": {
+      "baseline_attempt_success_rate": 0.006209963915074547,
+      "baseline_theorem_solved_rate": 0.8934426229508197,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 3645,
+          "attempt_success_rate": 0.019204389574759947,
+          "theorem_solved_rate": 0.5737704918032787
+        },
+        "25": {
+          "kept_attempts": 8985,
+          "attempt_success_rate": 0.009905397885364497,
+          "theorem_solved_rate": 0.6557377049180327
+        },
+        "50": {
+          "kept_attempts": 17897,
+          "attempt_success_rate": 0.006537408504218584,
+          "theorem_solved_rate": 0.7622950819672131
+        }
+      }
+    },
+    "tail_logprob": {
+      "baseline_attempt_success_rate": 0.006209963915074547,
+      "baseline_theorem_solved_rate": 0.8934426229508197,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 3645,
+          "attempt_success_rate": 0.019204389574759947,
+          "theorem_solved_rate": 0.5655737704918032
+        },
+        "25": {
+          "kept_attempts": 8985,
+          "attempt_success_rate": 0.009682804674457429,
+          "theorem_solved_rate": 0.639344262295082
+        },
+        "50": {
+          "kept_attempts": 17897,
+          "attempt_success_rate": 0.006593283790579427,
+          "theorem_solved_rate": 0.7622950819672131
+        }
+      }
+    }
+  },
+  "baseline_generated_token_proofconf_summary": "SOURCE_ARTIFACTS/analysis/proofconf-confidence-20260423-valid-fixed32-top20-rs16-r2/summary.json",
+  "postfilter_source_output_dir": "SOURCE_ARTIFACTS/analysis/prompt-logprob-proofconf-api-gpt54mini-deepseek-nosorry-noenv-20260525-183215",
+  "postfilter_excluded_proof_files": [
+    "SOURCE_ARTIFACTS/analysis/proofconf-api-gpt54mini-deepseek-nosorry-noenv-20260525/lean/amc12a_2008_p2/000018.lean"
+  ]
+}

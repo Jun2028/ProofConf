@@ -1,0 +1,29 @@
+# 2026-05-25 proofconf API scoring critical audit
+
+- Audited the corrected proofconf API prompt-logprob run after the no-sorry/no-env rerun.
+- Confirmed the scorer summary math:
+  - Independent AUC recomputation from `trace_metrics.jsonl` exactly matched `summary.json`.
+  - Token/body checks: 0 scoring errors, 0 missing prompt-logprob rows, 0 missing token logprobs, 0 boundary-crossing tokens, and no split length mismatches.
+- Found and fixed two builder robustness issues in `scripts/build_proofconf_prompt_manifest.py`:
+  - `contains_sorry` now uses `boolish` instead of Python `bool`, so string values like `"false"` cannot be misread as true.
+  - `base_score` now uses `floatish`, so numeric strings are handled consistently.
+  - `--drop-eval-env-errors` now also drops Lean return codes 126/127.
+- Found one retained row with `lean_returncode=127`; treated it as an evaluator execution/environment failure.
+  - Strict rebuilt manifest: `SOURCE_ARTIFACTS/analysis/proofconf-api-gpt54mini-deepseek-nosorry-noenv-strict-20260525/results.jsonl`.
+  - Strict manifest counts: 39,601 trace rows, 174 `sorry` rows dropped, 3,678 eval-env rows dropped, 35,749 attempts kept, 222 passed, 35,527 failed.
+  - No GPU rerun was needed because the excluded row had already been scored; wrote a postfiltered scoring summary instead.
+  - Strict postfiltered scoring output: `SOURCE_ARTIFACTS/analysis/prompt-logprob-proofconf-api-gpt54mini-deepseek-nosorry-noenv-strict-20260525-postfilter`.
+- Strict postfiltered metrics:
+  - Global AUCs: `avg_logprob` 0.341240, `min_logprob` 0.705206, `bottom10_logprob` 0.342360, `lowest_window_logprob` 0.661939, `tail_logprob` 0.334296.
+  - Within-theorem mean AUCs over 63 mixed-label theorem groups: `avg_logprob` 0.508107, `min_logprob` 0.517396, `bottom10_logprob` 0.460125, `lowest_window_logprob` 0.527688, `tail_logprob` 0.499780.
+- Pool caveats:
+  - The pool is still attempt-weighted and highly duplicated: 35,749 attempts collapse to about 15.7k exact reconstructed Lean texts.
+  - Exact proof-text and raw-generation label conflicts are 0 after filtering.
+  - Deduplicated exact-text AUCs are also weak: within-theorem mean AUC was about 0.487 for `avg_logprob`, 0.538 for `min_logprob`, 0.459 for `bottom10_logprob`, 0.513 for `lowest_window_logprob`, and 0.477 for `tail_logprob`.
+  - Some failed rows contain malformed extra imports/fences/theorem text inside the proof body; all such structural-body issues observed were failed rows.
+  - Passed trace rows all had `lean_returncode=0`, `lean_failure_kind=pass`, and `failure_tier=PASS`.
+  - Local Lean/REPL re-verification could not be made trustworthy in this workspace: direct `lake env lean` timed out even on a trivial `ring` proof, and the existing REPL sanity wrapper failed its own smoke theorem under this host setup.
+- Interpretation:
+  - The metric calculation is internally correct for the current definition.
+  - The strict pool is much cleaner than the earlier runs, but it is not a perfect semantic proof corpus because it relies on trace labels and reconstructed proof bodies rather than successful local re-verification.
+  - The substantive conclusion is unchanged: Goedel prompt logprob has weak within-theorem discrimination on this API-generated proof pool.

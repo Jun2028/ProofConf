@@ -2,6 +2,9 @@
 
 This folder contains markdown reports derived from run outputs.
 
+- [Recovered April–May 2026 confidence/AUC results](historical-2026-spring/README.md)
+  include original reports and reproducible attempt-level tables.
+
 - Use `plan/` for planning documents only.
 - Use `logs/run/` for raw run logs and driver traces.
 - Use `logs/analysis/` for human-readable run analyses and postmortems.

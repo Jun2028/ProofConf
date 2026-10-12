@@ -2,6 +2,15 @@
 
 A reproducible pipeline to study whether token-confidence signals from LLM-generated Lean proofs correlate with proof correctness.
 
+## Historical Results
+
+The [recovered April–May 2026 results](logs/analysis/historical-2026-spring/README.md)
+include the **0.871 / 0.839 AUC** single-theorem observation, the completed
+244-theorem Goedel study, and Goedel rescoring of GPT-5.4 Mini/DeepSeek proofs.
+Original reports, attempt-level metric tables, provenance, and a CPU-only
+reproduction check are included. The archive distinguishes global AUC from
+within-theorem discrimination and records which older artifacts remain missing.
+
 ## Goal
 
 For each generated proof attempt:

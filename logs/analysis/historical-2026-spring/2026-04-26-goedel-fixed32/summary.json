@@ -1,0 +1,159 @@
+{
+  "source_result_files": [
+    "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260423-valid-fixed32-top20-rs16-r2-shard00/eval/results.jsonl",
+    "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260423-valid-fixed32-top20-rs16-r2-shard01/eval/results.jsonl",
+    "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260423-valid-fixed32-top20-rs16-r2-shard02/eval/results.jsonl",
+    "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260423-valid-fixed32-top20-rs16-r2-shard03/eval/results.jsonl"
+  ],
+  "method": "paper_topk",
+  "top_k": 20,
+  "require_full_topk": false,
+  "fallback_to_chosen": false,
+  "window_size": 24,
+  "stride": 6,
+  "tail_tokens": 256,
+  "workers": 8,
+  "keep_percents": [
+    10,
+    25,
+    50
+  ],
+  "unique_theorems": 244,
+  "attempt_rows_analyzed": 7808,
+  "correct_attempts": 5536,
+  "wrong_attempts": 2272,
+  "missing_metrics": 0,
+  "status_counts": {
+    "error": 269,
+    "failed_verification": 2003,
+    "passed": 5536
+  },
+  "baseline_attempt_success_rate": 0.7090163934426229,
+  "baseline_theorem_solved_rate": 0.8401639344262295,
+  "global_correlation": {
+    "avg_logprob": {
+      "point_biserial": 0.02794241269384702,
+      "auc": 0.522944488189978
+    },
+    "lowest_group_confidence": {
+      "point_biserial": 0.33789041456517255,
+      "auc": 0.7235295352316209
+    },
+    "bottom10_group_confidence": {
+      "point_biserial": 0.07025858019671342,
+      "auc": 0.5450515479982496
+    },
+    "tail_confidence": {
+      "point_biserial": -0.1897660204508357,
+      "auc": 0.38354144352204267
+    }
+  },
+  "within_theorem_auc": {
+    "avg_logprob": {
+      "valid_theorems": 126,
+      "mean_per_theorem_auc": 0.4789036122485517,
+      "theorems_below_0_5": 70
+    },
+    "lowest_group_confidence": {
+      "valid_theorems": 126,
+      "mean_per_theorem_auc": 0.5150525400665078,
+      "theorems_below_0_5": 54
+    },
+    "bottom10_group_confidence": {
+      "valid_theorems": 126,
+      "mean_per_theorem_auc": 0.46654707107772403,
+      "theorems_below_0_5": 76
+    },
+    "tail_confidence": {
+      "valid_theorems": 126,
+      "mean_per_theorem_auc": 0.48762570085160034,
+      "theorems_below_0_5": 56
+    }
+  },
+  "confidence_filtering": {
+    "avg_logprob": {
+      "baseline_attempt_success_rate": 0.7090163934426229,
+      "baseline_theorem_solved_rate": 0.8401639344262295,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 976,
+          "attempt_success_rate": 0.680327868852459,
+          "theorem_solved_rate": 0.7868852459016393
+        },
+        "25": {
+          "kept_attempts": 1952,
+          "attempt_success_rate": 0.694672131147541,
+          "theorem_solved_rate": 0.8155737704918032
+        },
+        "50": {
+          "kept_attempts": 3904,
+          "attempt_success_rate": 0.7069672131147541,
+          "theorem_solved_rate": 0.8319672131147541
+        }
+      }
+    },
+    "lowest_group_confidence": {
+      "baseline_attempt_success_rate": 0.7090163934426229,
+      "baseline_theorem_solved_rate": 0.8401639344262295,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 976,
+          "attempt_success_rate": 0.7131147540983607,
+          "theorem_solved_rate": 0.8114754098360656
+        },
+        "25": {
+          "kept_attempts": 1952,
+          "attempt_success_rate": 0.7100409836065574,
+          "theorem_solved_rate": 0.8278688524590164
+        },
+        "50": {
+          "kept_attempts": 3904,
+          "attempt_success_rate": 0.7126024590163934,
+          "theorem_solved_rate": 0.8401639344262295
+        }
+      }
+    },
+    "bottom10_group_confidence": {
+      "baseline_attempt_success_rate": 0.7090163934426229,
+      "baseline_theorem_solved_rate": 0.8401639344262295,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 976,
+          "attempt_success_rate": 0.6854508196721312,
+          "theorem_solved_rate": 0.7868852459016393
+        },
+        "25": {
+          "kept_attempts": 1952,
+          "attempt_success_rate": 0.6972336065573771,
+          "theorem_solved_rate": 0.8155737704918032
+        },
+        "50": {
+          "kept_attempts": 3904,
+          "attempt_success_rate": 0.7041495901639344,
+          "theorem_solved_rate": 0.8360655737704918
+        }
+      }
+    },
+    "tail_confidence": {
+      "baseline_attempt_success_rate": 0.7090163934426229,
+      "baseline_theorem_solved_rate": 0.8401639344262295,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 976,
+          "attempt_success_rate": 0.6956967213114754,
+          "theorem_solved_rate": 0.7991803278688525
+        },
+        "25": {
+          "kept_attempts": 1952,
+          "attempt_success_rate": 0.7085040983606558,
+          "theorem_solved_rate": 0.8155737704918032
+        },
+        "50": {
+          "kept_attempts": 3904,
+          "attempt_success_rate": 0.7095286885245902,
+          "theorem_solved_rate": 0.8401639344262295
+        }
+      }
+    }
+  }
+}

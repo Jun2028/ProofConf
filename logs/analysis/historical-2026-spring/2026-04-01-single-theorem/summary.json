@@ -1,0 +1,151 @@
+{
+  "source_result_files": [
+    "SOURCE_ARTIFACTS/runs/minif2f-pass32-20260328-top20-rs16-shard03/eval/results.jsonl"
+  ],
+  "method": "paper_topk",
+  "top_k": 20,
+  "require_full_topk": false,
+  "fallback_to_chosen": false,
+  "window_size": 24,
+  "stride": 6,
+  "tail_tokens": 256,
+  "keep_percents": [
+    10,
+    25,
+    50
+  ],
+  "unique_theorems": 1,
+  "attempt_rows_analyzed": 32,
+  "correct_attempts": 1,
+  "wrong_attempts": 31,
+  "missing_metrics": 0,
+  "baseline_attempt_success_rate": 0.03125,
+  "baseline_theorem_solved_rate": 1.0,
+  "global_correlation": {
+    "avg_logprob": {
+      "auc": 0.6774193548387096,
+      "point_biserial": 0.07693627530389137
+    },
+    "lowest_group_confidence": {
+      "auc": 0.8709677419354839,
+      "point_biserial": 0.19609260606617604
+    },
+    "bottom10_group_confidence": {
+      "auc": 0.8387096774193549,
+      "point_biserial": 0.12855247948296908
+    },
+    "tail_confidence": {
+      "auc": 0.5806451612903226,
+      "point_biserial": 0.05728928350375461
+    }
+  },
+  "within_theorem_auc": {
+    "avg_logprob": {
+      "valid_theorems": 1,
+      "mean_per_theorem_auc": 0.6774193548387096,
+      "theorems_below_0_5": 0
+    },
+    "lowest_group_confidence": {
+      "valid_theorems": 1,
+      "mean_per_theorem_auc": 0.8709677419354839,
+      "theorems_below_0_5": 0
+    },
+    "bottom10_group_confidence": {
+      "valid_theorems": 1,
+      "mean_per_theorem_auc": 0.8387096774193549,
+      "theorems_below_0_5": 0
+    },
+    "tail_confidence": {
+      "valid_theorems": 1,
+      "mean_per_theorem_auc": 0.5806451612903226,
+      "theorems_below_0_5": 0
+    }
+  },
+  "confidence_filtering": {
+    "avg_logprob": {
+      "baseline_attempt_success_rate": 0.03125,
+      "baseline_theorem_solved_rate": 1.0,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 4,
+          "attempt_success_rate": 0.0,
+          "theorem_solved_rate": 0.0
+        },
+        "25": {
+          "kept_attempts": 8,
+          "attempt_success_rate": 0.0,
+          "theorem_solved_rate": 0.0
+        },
+        "50": {
+          "kept_attempts": 16,
+          "attempt_success_rate": 0.0625,
+          "theorem_solved_rate": 1.0
+        }
+      }
+    },
+    "lowest_group_confidence": {
+      "baseline_attempt_success_rate": 0.03125,
+      "baseline_theorem_solved_rate": 1.0,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 4,
+          "attempt_success_rate": 0.0,
+          "theorem_solved_rate": 0.0
+        },
+        "25": {
+          "kept_attempts": 8,
+          "attempt_success_rate": 0.125,
+          "theorem_solved_rate": 1.0
+        },
+        "50": {
+          "kept_attempts": 16,
+          "attempt_success_rate": 0.0625,
+          "theorem_solved_rate": 1.0
+        }
+      }
+    },
+    "bottom10_group_confidence": {
+      "baseline_attempt_success_rate": 0.03125,
+      "baseline_theorem_solved_rate": 1.0,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 4,
+          "attempt_success_rate": 0.0,
+          "theorem_solved_rate": 0.0
+        },
+        "25": {
+          "kept_attempts": 8,
+          "attempt_success_rate": 0.125,
+          "theorem_solved_rate": 1.0
+        },
+        "50": {
+          "kept_attempts": 16,
+          "attempt_success_rate": 0.0625,
+          "theorem_solved_rate": 1.0
+        }
+      }
+    },
+    "tail_confidence": {
+      "baseline_attempt_success_rate": 0.03125,
+      "baseline_theorem_solved_rate": 1.0,
+      "top_percent": {
+        "10": {
+          "kept_attempts": 4,
+          "attempt_success_rate": 0.0,
+          "theorem_solved_rate": 0.0
+        },
+        "25": {
+          "kept_attempts": 8,
+          "attempt_success_rate": 0.0,
+          "theorem_solved_rate": 0.0
+        },
+        "50": {
+          "kept_attempts": 16,
+          "attempt_success_rate": 0.0625,
+          "theorem_solved_rate": 1.0
+        }
+      }
+    }
+  },
+  "recovery_note": "Recomputed on 2026-10-12 from saved March generation logprobs and saved verification labels; all four AUCs match the April 1 note to its reported precision. No new model calls or Lean verification."
+}
